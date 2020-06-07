@@ -1,0 +1,41 @@
+server:
+  port: 8803
+
+spring:
+  application:
+    name: cloud-stream-provider
+  cloud:
+    stream:
+      # 配置要绑定的rabbitmq的服务信息
+      binders:
+        # 定义的名称，用于binding整合
+        defaultRabbit:
+          # 消息组件类型
+          type: rabbit
+          # 设置rabbitmq的相关的环境配置
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest
+      # 服务整合处理
+      bindings:
+        # 通道的名称
+        input:
+          # 定义使用的exchange名称
+          destination: studyExchange
+          # 设置消息类型
+          content-type: application/json
+          # 设置要绑定的消息服务的具体设置
+          binder: defaultRabbit
+          # 微服务应用放置于同一个group中，就能保证消息只会被其中一个应用消费一次
+          # 不同的组是可以同时消费的，同一组内会发生竞争关系，只有其中一个可以消费
+          # group除了解决重复消费问题，还可以保持消息持久化
+          group: freedom
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/, http://eureka7002.com:7002/eureka/

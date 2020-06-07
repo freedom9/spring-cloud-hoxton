@@ -1,5 +1,6 @@
 package com.freedom.springcloud.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -10,6 +11,7 @@ import java.io.Serializable;
  * @description
  */
 @Data
+@AllArgsConstructor
 public class Payment implements Serializable {
 
     private static final long serialVersionUID = 7052260488566402631L;

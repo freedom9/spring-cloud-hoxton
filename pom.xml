@@ -10,9 +10,37 @@
 
     <modules>
         <module>cloud-provider-payment8001</module>
+        <module>cloud-provider-payment8002</module>
+        <module>cloud-consumer-order80</module>
         <module>cloud-api-common</module>
         <module>cloud-eureka-server7001</module>
-        <module>cloud-provider-payment8004</module>
+        <module>cloud-eureka-server7002</module>
+        <module>cloud-providerzk-payment8004</module>
+        <module>cloud-consumerzk-order80</module>
+        <module>cloud-providerconsul-payment8006</module>
+        <module>cloud-consumerconsul-order80</module>
+        <module>cloud-consumer-feign-order80</module>
+        <module>cloud-provider-hystrix-payment8001</module>
+        <module>cloud-consumer-feign-hystrix-order80</module>
+        <module>cloud-consumer-hystrix-dashboard9001</module>
+        <module>cloud-geteway-geteway9527</module>
+        <module>cloud-config-center3344</module>
+        <module>cloud-config-client3355</module>
+        <module>cloud-config-client3366</module>
+        <module>cloud-stream-rabbitmq-provider8801</module>
+        <module>cloud-stream-rabbitmq-provider8802</module>
+        <module>cloud-stream-rabbitmq-provider8803</module>
+        <module>cloudalibaba-provider-payment9001</module>
+        <module>cloudalibaba-provider-payment9002</module>
+        <module>cloudalibaba-consumer-order83</module>
+        <module>cloudalibaba-config-client3377</module>
+        <module>cloudalibaba-sentinel-service8401</module>
+        <module>cloudalibaba-provider-payment9003</module>
+        <module>cloudalibaba-provider-payment9004</module>
+        <module>cloudalibaba-consumer-order84</module>
+        <module>seata-order-service2001</module>
+        <module>seate-storage-service2002</module>
+        <module>seata-account-service2003</module>
     </modules>
 
     <properties>

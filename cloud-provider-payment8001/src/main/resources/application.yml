@@ -2,14 +2,20 @@ server:
   port: 8001
 
 spring:
-  spplication:
+  application:
     name: cloud-payment-service
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.103.219.222:3306/springcloudhoxton?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/springcloudhoxton?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      # 采样率介于0到1之间，1表示全部采集
+      probability: 1
 
 mybatis:
   mapperLocations: classpath:mapper/*.xml
@@ -18,5 +24,14 @@ mybatis:
 eureka:
   client:
     service-url:
-#      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
-      defaultZone: http://localhost:8076/eureka/
+#      defaultZone: http://localhost:7001/eureka
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+  instance:
+    instance-id: payment8001
+    # 访问路径可以显示ip地址
+    prefer-ip-address: true
+
+    # eureka客户端向服务端发送心跳的时间间隔，单位为秒（默认30秒）
+#    lease-renewal-interval-in-seconds: 1
+    # eureka服务端在收到最后一次心跳后等待时间上限，单位为秒（默认90秒），超时将被剔除
+#    lease-expiration-duration-in-seconds: 2

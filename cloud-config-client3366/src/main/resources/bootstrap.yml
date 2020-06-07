@@ -1,0 +1,33 @@
+server:
+  port: 3366
+
+spring:
+  application:
+    name: cloud-config-client
+  cloud:
+    config:
+      # 分支名称
+      label: master
+      # 配置文件名称
+      name: application
+      # 读取后缀名称，综合上两个配置就是读取master分支的application-dev.yml文件
+      profile: dev
+      # 配置中心地址
+      uri: http://localhost:3344
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/, http://eureka7002.com:7002/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

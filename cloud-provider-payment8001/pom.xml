@@ -21,7 +21,13 @@
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-netflix-eureka-client</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!-- 包含了sleuth + zipkin -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
 
         <dependency>
