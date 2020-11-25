@@ -17,8 +17,12 @@ public class GatewayConfig {
     public RouteLocator customRouteLocator(RouteLocatorBuilder routeLocatorBuilder) {
         RouteLocatorBuilder.Builder routes = routeLocatorBuilder.routes();
 
+        // 事实证明，path是拼接在域名后面的，而不是直接访问uri路径的
         routes.route("baiduNew_route",
-                r -> r.path("/guonei").uri("http://news.baidu.com/guonei")).build();
+                r -> r.path("/guonei").uri("http://news.baidu.com"));
+        routes.route("test", r -> r.path("/test")
+                .filters(f -> f.rewritePath("/test", "/guonei")).uri("http://news.baidu.com");
+        
         return routes.build();
     }
 }
